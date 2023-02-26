@@ -14,6 +14,8 @@ namespace CMP1903M_A01_2223
     {
         private static List<Card> packList = new List<Card>();
         private static List<Card> dealtCards = new List<Card>();
+
+       
         private static Card dealtCard;
         
 
@@ -43,23 +45,49 @@ namespace CMP1903M_A01_2223
                 {                    
                     int randNum = random.Next(end);
                     packList.Add(packList[randNum]);
-                    Console.WriteLine(packList[randNum]);
-
                     packList.Remove(packList[randNum]);
                     
-                    Console.WriteLine(packList[packList.Count - 1]);
+                    
                 }
                 return true;
+
             }
 
             bool Riffle()
             {
+                
+                List<Card> rifflePack = new List<Card>();
 
+                //Required to ensure packList and rifflePack cards alternate.
+                int additionCounter = 1;
+
+                for (int num = 26; num <= packList.Count() -1; num++)
+                {
+                    rifflePack.Add(packList[num]);                                   
+                }
+
+                packList.RemoveRange(26,26);
+
+                //Loop to cycle through packList and riffleList and insert 
+                //rifflePack cards between packList cards.
+                for (int riffleIndex = 0; riffleIndex < rifflePack.Count()-1; riffleIndex++)
+                {                    
+                    int packListIndex = riffleIndex + additionCounter;
+
+                    packList.Insert(packListIndex, rifflePack[riffleIndex]);
+                    additionCounter++;
+                }
+                
+                return true;
             }
 
             if (typeOfShuffle == 1)
             {
                 FisherYates();
+            }
+            else if( typeOfShuffle == 2)
+            {
+                Riffle();
             }
 
             return true;
