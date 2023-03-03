@@ -27,17 +27,18 @@ namespace CMP1903M_A01_2223
                 for (int v = 1; v < 14; v++)
                 {
                     Card newCard = new Card(s, v);
-                    packList.Add(newCard);
-                    
+                    packList.Add(newCard);                    
                 }
             }
                  
         }
 
-        public static bool shuffleCardPack(int typeOfShuffle)
+        public static bool shuffleCardPack(int typeOfShuffle, int shuffleAmount)
         {
             //Shuffles the pack based on the type of shuffle
+
             
+
             bool FisherYates(int numOfShuffles=1)
             {
                 Random random = new Random();
@@ -49,17 +50,10 @@ namespace CMP1903M_A01_2223
                         int randNum = random.Next(end);
                         packList.Add(packList[randNum]);
                         packList.Remove(packList[randNum]);
-
-
                     }
                     shuffleCounter++;
-                }
-                
-                foreach (Card card in packList)
-                {
-                    Console.WriteLine(card);
-                }
-                
+                }                
+                               
                 return true;
 
             }
@@ -99,31 +93,27 @@ namespace CMP1903M_A01_2223
                     
                 }
 
-                
-                foreach (Card card in packList)
-                {
-                    Console.WriteLine(card);
-                }
-                Console.WriteLine(packList.Count);
                 return true;
             }
 
             if (typeOfShuffle == 1)
             {
-                FisherYates(3);
+                FisherYates(shuffleAmount);
                 Console.WriteLine("Deck Shuffled: " + shuffleCounter + " times.");
             }
             else if( typeOfShuffle == 2)
             {
-                Riffle();
+                Riffle(shuffleAmount);
+                Console.WriteLine("Deck Shuffled: " + shuffleCounter + " times.");
             }
             else if( typeOfShuffle == 3)
             {
                 return true;
             }
 
-            return true;
+            return false;
         }
+
         public static Card dealCard()
         {
             //Deals the top card of the pack
@@ -131,15 +121,13 @@ namespace CMP1903M_A01_2223
             {
                 dealtCard = packList[0];
                 packList.RemoveAt(0);
-                Console.WriteLine(dealtCard);
+                //Console.WriteLine(dealtCard);
                 return dealtCard;
             }
             else
             {
                 throw new System.ArgumentOutOfRangeException("Range Error - Not enough cards left to deal!");
-            }
-
-            
+            }           
 
 
         }
@@ -151,7 +139,7 @@ namespace CMP1903M_A01_2223
                 for (int i = 0; i <= amount -1; i++)
                 {
                     dealtCards.Add(packList[0]);
-                    Console.WriteLine(packList[0]);
+                    //Console.WriteLine(packList[0]);
                     packList.RemoveAt(0);
                 }
                 return dealtCards;
