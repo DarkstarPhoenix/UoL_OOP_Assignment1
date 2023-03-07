@@ -12,7 +12,7 @@ namespace CMP1903M_A01_2223
      
         static void Main(string[] args)
         {
-            Player player = Testing.createPlayer();
+            Player player = Testing.CreatePlayer();
             Console.WriteLine();
 
             Testing.CreatePack();
