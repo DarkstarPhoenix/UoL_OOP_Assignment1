@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,7 +26,7 @@ namespace CMP1903M_A01_2223
         /// Create new player object.
         /// </summary>
         /// <returns></returns>
-        public static Player createPlayer()
+        public static Player CreatePlayer()
         {
             Console.WriteLine("Enter name of Player 1: ");
             string playerName = Console.ReadLine();
@@ -44,23 +45,52 @@ namespace CMP1903M_A01_2223
         {
             string shuffle;
             string shuffleAmount;
+            int shuffleNum = 0;
+            bool shuffleBool = false;
 
-            Console.WriteLine("What type of shuffle would do you require?:");
-            Console.WriteLine("1 -- Fisher-Yates.");
-            Console.WriteLine("2 -- Riffle.");
-            Console.WriteLine("3 -- No Shuffle.");
-            shuffle = Console.ReadLine();
-            Console.WriteLine();
-            int shuffleNum = Int32.Parse(shuffle);
+            while (!shuffleBool)
+            {
+                try
+                {
+                    Console.WriteLine("What type of shuffle would do you require?:");
+                    Console.WriteLine("1 -- Fisher-Yates.");
+                    Console.WriteLine("2 -- Riffle.");
+                    Console.WriteLine("3 -- No Shuffle.");
+                    shuffle = Console.ReadLine();
+                    Console.WriteLine();
 
+                    shuffleNum = Int32.Parse(shuffle);
+                    shuffleBool= true;
+                }
+                catch (FormatException e)
+                {
+                    shuffleBool = false;
+                    Console.WriteLine($"{e.Message} Use integers only. \n");
+                }
+            }
+         
             if (shuffleNum != 3)
             {
-                Console.WriteLine("How may times would you like the deck shuffled?:");
-                Console.WriteLine("Enter value:");
-                shuffleAmount = Console.ReadLine();
-                int shuffleAmountNum = Int32.Parse(shuffleAmount);
+                shuffleBool = false;
+                while (!shuffleBool)
+                {
+                    try
+                    {
+                        Console.WriteLine("How may times would you like the deck shuffled?:");
+                        Console.WriteLine("Enter value:");
+                        shuffleAmount = Console.ReadLine();
+                        int shuffleAmountNum = Int32.Parse(shuffleAmount);
 
-                Pack.ShuffleCardPack(shuffleNum, shuffleAmountNum);
+                        Pack.ShuffleCardPack(shuffleNum, shuffleAmountNum);
+                        shuffleBool= true;
+                    }
+                    catch (FormatException e)
+                    {
+                        shuffleBool = false;
+                        Console.WriteLine($"{e.Message} Use integers only. \n");
+                    }
+                }
+                
             }       
             
         }
@@ -71,13 +101,30 @@ namespace CMP1903M_A01_2223
         public static void Deal()
         {            
             {
-                string dealAmount;                                            
-                                
-                Console.WriteLine("How many cards do you require to be dealt");
-                Console.WriteLine("Enter a value");
-                dealAmount = Console.ReadLine();
+                bool dealBool = false;
+                string dealAmount;
+                int dealAmountNum = 0;
                 
-                int dealAmountNum = Int32.Parse(dealAmount);
+                while (!dealBool)
+                {
+                    try
+                    {
+                        Console.WriteLine("How many cards do you require to be dealt");
+                        Console.WriteLine("Enter a value");
+                        dealAmount = Console.ReadLine();
+
+                        dealAmountNum = Int32.Parse(dealAmount);
+
+                        dealBool = true;
+                    }
+                    catch (FormatException e)
+                    {
+                        dealBool = false;
+                        Console.WriteLine($"{e.Message} Use integers only. \n");
+                    }
+                }
+                                
+                
 
                 if (dealAmountNum > 1)
                 {
