@@ -12,13 +12,25 @@ namespace CMP1903M_A01_2223
      
         static void Main(string[] args)
         {
-            Test.createPack();
+            Player player = Testing.createPlayer();
             Console.WriteLine();
 
-            Test.shufflePack();
+            Testing.CreatePack();
             Console.WriteLine();
 
-            Test.testDeal();
+            Testing.ShufflePack();
+            Console.WriteLine();
+
+            Testing.Deal();
+            Console.WriteLine();
+
+            Testing.ShowPlayerHand(player, Player.Hand);
+            Console.WriteLine();
+
+            Testing.Deal();
+            Console.WriteLine();
+
+            Testing.ShowPlayerHand(player, Player.Hand);
             Console.WriteLine();
 
             Console.ReadLine();

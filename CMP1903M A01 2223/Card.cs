@@ -8,8 +8,10 @@ namespace CMP1903M_A01_2223
 {
     public class Card
     {
-        //enums used in override ToString method to convert int values to string.
-        enum _value
+        /// <summary>
+        /// Enums will use index value to convert integer value to corresponding Card value & suit, i.e Ace of Spades.
+        /// </summary>
+        enum enumValue
         {
             Ace = 1,
             Two,
@@ -26,7 +28,7 @@ namespace CMP1903M_A01_2223
             King
         }
 
-        enum _suit
+        enum enumSuit
         {
             Clubs = 1,
             Hearts,
@@ -34,21 +36,43 @@ namespace CMP1903M_A01_2223
             Diamonds
         }
 
-        public int value;
-        public int suit;
+        private int _value;
+        private int _suit;
 
+        /// <summary>
+        /// Encapsulation for Card values & suits. Read-only.
+        /// </summary>
+        public int value
+        {
+            get => _value;
+            
+        }
+        public int suit
+        {
+            get => _suit;
+            
+        }
+
+
+        /// <summary>
+        /// Card Constructor 
+        /// </summary>
+        /// <param name="newSuit">Integer values representing corresponding values in the cards 1-13 (Ace-King)</param>
+        /// <param name="newValue">Intger values representing Card suit 1=Clubs, 2=Hearts, 3=Spades, 4=Diamonds</param>
         public Card(int newSuit, int newValue)
         {
-            suit = newSuit;
-            value = newValue;
+            _suit = newSuit;
+            _value = newValue;
            
         }
 
-        //An override of System.object's ToString() method
-        //to provide a more readable string output of Card
+        /// <summary>
+        /// Overide to convert integers to corresponding cards, i.e Ace of Spades.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
-            return "The " + (_value)value + " of " + (_suit)suit;
+            return (enumValue)value + " of " + (enumSuit)suit;
         }
 
     }
