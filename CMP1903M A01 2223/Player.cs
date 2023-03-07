@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CMP1903M_A01_2223
 {
+    /// <summary>
+    /// This is an additional class. This contains a constructor for a player, and will be assigned a name, and a hand of cards.
+    /// </summary>
     public class Player
     {
         private static string _name;
