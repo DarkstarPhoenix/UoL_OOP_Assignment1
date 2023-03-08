@@ -11,6 +11,7 @@ namespace CMP1903M_A01_2223
     /// </summary>
     public class Player
     {
+        //Encapsulation
         private static string _name;
         private static List<Card> _hand;
 

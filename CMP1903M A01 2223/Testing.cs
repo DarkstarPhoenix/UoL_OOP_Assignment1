@@ -90,13 +90,11 @@ namespace CMP1903M_A01_2223
                         Console.WriteLine($"{e.Message} Use integers only. \n");
                     }
                 }
-                
             }       
-            
         }
 
         /// <summary>
-        /// Test the deal methods. Loops untill all cards are dealt.
+        /// Test the deal methods.
         /// </summary>
         public static void Deal()
         {            
@@ -123,8 +121,6 @@ namespace CMP1903M_A01_2223
                         Console.WriteLine($"{e.Message} Use integers only. \n");
                     }
                 }
-                                
-                
 
                 if (dealAmountNum > 1)
                 {
@@ -143,16 +139,12 @@ namespace CMP1903M_A01_2223
                     foreach (Card card in dealtCards)
                     {
                         Player.PlayersHand(card);
-                            
                     }
-
-                }
-                 
+}
                 if (Pack.PackList.Count == 0)
                 {
                     Console.WriteLine("No more cards left in pack!");
                 }                
-               
             }
         }
 
@@ -165,6 +157,5 @@ namespace CMP1903M_A01_2223
                 Console.WriteLine(card);
             }
         }
-
     }
 }

@@ -14,7 +14,7 @@ namespace CMP1903M_A01_2223
     public class Pack
     {
         /// <summary>
-        /// Lists for current pack and dealt cards.
+        /// Lists for current pack and dealt cards. Encapsulation
         /// </summary>
         private readonly static List<Card> _packList = new List<Card>();
         private readonly static List<Card> dealtCards = new List<Card>();
@@ -24,8 +24,7 @@ namespace CMP1903M_A01_2223
         /// </summary>
         public static List<Card> PackList
         {
-            get => _packList;
-            
+            get => _packList;            
         }      
                
         //private static Card dealtCard;
@@ -35,8 +34,7 @@ namespace CMP1903M_A01_2223
         /// Pack constructor. Pack will always be 52 cards, 4 suits of 13 cards.
         /// </summary>
         public Pack()
-        {
-            //Initialise the card pack here
+        {            
             for (int s = 1; s < 5; s++)
             {
                 for (int v = 1; v < 14; v++)
@@ -121,14 +119,11 @@ namespace CMP1903M_A01_2223
                         }
 
                         shuffleCounter++;
-
                     }
 
                     return true;
                 }
 
-                
-                
                 if (typeOfShuffle == 1)
                 {
                     FisherYates(shuffleAmount);
@@ -152,9 +147,7 @@ namespace CMP1903M_A01_2223
                     int shuffleNum = Int32.Parse(Console.ReadLine());
 
                     ShuffleCardPack(shuffleNum, shuffleAmount);
-                }
-                
-                              
+                }               
             }
             else
             {

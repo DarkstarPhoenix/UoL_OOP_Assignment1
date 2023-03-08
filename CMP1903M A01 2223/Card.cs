@@ -27,7 +27,6 @@ namespace CMP1903M_A01_2223
             Queen,
             King
         }
-
         enum enumSuit
         {
             Clubs = 1,
@@ -35,7 +34,6 @@ namespace CMP1903M_A01_2223
             Spades,
             Diamonds
         }
-
 
         /// <summary>
         /// Encapsulation for Card values & suits.
@@ -53,7 +51,6 @@ namespace CMP1903M_A01_2223
             get => _suit;
             
         }
-
 
         /// <summary>
         /// Card Constructor 
