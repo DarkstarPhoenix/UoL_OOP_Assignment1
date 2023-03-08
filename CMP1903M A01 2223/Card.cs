@@ -38,7 +38,7 @@ namespace CMP1903M_A01_2223
 
 
         /// <summary>
-        /// Encapsulation for Card values & suits. Read-only.
+        /// Encapsulation for Card values & suits.
         /// </summary>
         private int _value;
         private int _suit;
