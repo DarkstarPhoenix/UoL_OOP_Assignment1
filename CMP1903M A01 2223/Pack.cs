@@ -162,16 +162,16 @@ namespace CMP1903M_A01_2223
         /// </summary>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static List<Card> DealCard()
+        public static Card DealCard()
         {
             //Deals the top card of the pack
             if (PackList.Count != 0)
             {
-                dealtCards.RemoveRange(0, dealtCards.Count);
-                dealtCards.Add(PackList[0]);
+                
+                Card dealtCard = PackList[0];
                 PackList.RemoveAt(0);
                 
-                return dealtCards;
+                return dealtCard;
             }
             else
             {

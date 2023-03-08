@@ -125,22 +125,19 @@ namespace CMP1903M_A01_2223
                 if (dealAmountNum > 1)
                 {
                     List<Card> dealtCards = Pack.DealCard(dealAmountNum);
-                        
-                    foreach (Card card in dealtCards)
-                    {
-                        Player.PlayersHand(card);
-                                                      
-                    }
-                }
-                else
-                {
-                    List<Card> dealtCards = Pack.DealCard();
 
                     foreach (Card card in dealtCards)
                     {
                         Player.PlayersHand(card);
+
                     }
-}
+                }
+                else
+                {
+                    Card dealtCard = Pack.DealCard();
+                    Player.PlayersHand(dealtCard);
+                }
+
                 if (Pack.PackList.Count == 0)
                 {
                     Console.WriteLine("No more cards left in pack!");
