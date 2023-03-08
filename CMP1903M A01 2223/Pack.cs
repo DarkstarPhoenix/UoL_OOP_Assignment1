@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -126,6 +127,8 @@ namespace CMP1903M_A01_2223
                     return true;
                 }
 
+                
+                
                 if (typeOfShuffle == 1)
                 {
                     FisherYates(shuffleAmount);
@@ -144,13 +147,19 @@ namespace CMP1903M_A01_2223
                 }
                 else
                 {
-                    throw new Exception("Incorrect Shuffle type: Only select from choices given");
+                    //Custome exception to ensure only values 1, 2, or 3 are used.
+                    Console.WriteLine("ShuffleTypeException: Incorrect value entered. Enter 1, 2, or 3 only.");
+                    int shuffleNum = Int32.Parse(Console.ReadLine());
+
+                    ShuffleCardPack(shuffleNum, shuffleAmount);
                 }
+                
+                              
             }
             else
             {
                 throw new Exception("Range Error - no cards in Pack to shuffle");
-            }                 
+            }
 
             return true;
         }
